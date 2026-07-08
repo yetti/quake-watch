@@ -267,12 +267,12 @@ visibleQuakes = computed(() =>
 - [x] Render a hard-coded list with `@for` and `@empty`
 
 ### M2: Live data
-- [ ] Add `provideHttpClient()` to `app.config.ts`
-- [ ] Create `QuakeService` with a `loadAll()` that fetches the GA feed
-- [ ] Map GA fields to the `Quake` shape (`event_id`, `preferred_magnitude`, `origin_time` to millis, `depth`, `[lng, lat]`)
-- [ ] Confirm the feed loads directly (CORS is confirmed working; USGS/proxy are fallback only)
-- [ ] Expose the data as a signal with `toSignal()`
-- [ ] List now shows live quakes
+- [x] Add `provideHttpClient()` to `app.config.ts`
+- [x] Create `QuakeService` with a `loadAll()` that fetches the GA feed
+- [x] Map GA fields to the `Quake` shape (`event_id`, `preferred_magnitude`, `origin_time` to millis, `depth`, `[lng, lat]`)
+- [x] Confirm the feed loads directly (CORS is confirmed working; USGS/proxy are fallback only)
+- [x] Expose the data as a signal with `toSignal()`
+- [x] List now shows live quakes
 
 ### M3: Map
 - [ ] Install `leaflet` and `@types/leaflet`
