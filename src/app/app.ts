@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { QuakeList } from "./features/list/components/quake-list/quake-list";
+import { QuakeList } from "./features/quake/components/quake-list/quake-list";
 
 @Component({
   selector: 'app-root',
