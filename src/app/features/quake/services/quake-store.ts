@@ -5,6 +5,6 @@ import { QuakeApi } from './quake-api';
 
 @Service()
 export class QuakeStore {
-  quakeApi = inject(QuakeApi)
+  private quakeApi = inject(QuakeApi)
   quakes = toSignal(this.quakeApi.loadAll(), { initialValue: [] as Quake[] });
 }

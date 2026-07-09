@@ -275,10 +275,10 @@ visibleQuakes = computed(() =>
 - [x] List now shows live quakes
 
 ### M3: Map
-- [ ] Install `leaflet` and `@types/leaflet`
-- [ ] Create `MapComponent` with a map container element
-- [ ] Initialise Leaflet and add an OpenStreetMap tile layer
-- [ ] Render one marker per quake, scaled by magnitude
+- [x] Install `leaflet` and `@types/leaflet`
+- [x] Create `MapComponent` with a map container element
+- [x] Initialise Leaflet and add an OpenStreetMap tile layer
+- [x] Render one marker per quake, scaled by magnitude
 
 ### M4: Filtering
 - [ ] Add `minMag` and `sinceHours` signals

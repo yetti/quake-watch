@@ -22,7 +22,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@angular/build": "^21.2.18",
+    "@angular/build": "^22.0.5",
     "@angular/cli": "^22.0.5",
     "@angular/compiler-cli": "^22.0.0",
     "@tailwindcss/postcss": "^4.1.12",
@@ -38,7 +38,8 @@
     "@parcel/watcher@2.5.6": true,
     "esbuild@0.28.1": true,
     "fsevents@2.3.3": true,
-    "lmdb@3.5.1": true,
-    "msgpackr-extract@3.0.4": true
+    "msgpackr-extract@3.0.4": true,
+    "esbuild@0.27.7": true,
+    "lmdb@3.5.4": true
   }
 }

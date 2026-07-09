@@ -1,4 +1,21 @@
-<app-quake-list />
+<div class="md:container md:mx-auto md:px-8 md:py-8">
+  <header>
+    <h1 class="text-2xl pb-2.5">Quake Watch</h1>
+  </header>
 
+  <section>
+    <app-quake-map />
+  </section>
+
+  <section>
+    <h2 class="text-xl pb-2">Recent Earthquakes</h2>
+    <app-quake-list />
+  </section>
+
+  <footer class="mt-4 p-2 bg-gray-200 border-2 border-gray-300">
+    Based on <a href="https://earthquakes.ga.gov.au">Earthquake Notification Service GeoJSON feed</a> by Geoscience Australia which is © Commonwealth of Australia and is provided under a Creative Commons Attribution 4.0 International Licence and is subject to the disclaimer of warranties in <a href="https://creativecommons.org/licenses/by/4.0/legalcode#s5">section 5</a> of that licence.
+    <img src="/images/cc-lrge.jpg" alt="Creative Commons Attribution Licence" width="88" height="31">
+  </footer>
+</div>
 
 <router-outlet />
