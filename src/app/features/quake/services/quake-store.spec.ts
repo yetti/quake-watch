@@ -10,8 +10,8 @@ class QuakeApiStub {
       {
         id: 'ga2026mudirw',
         place: 'N of Minyerri, NT',
-        magnitude: 2.678,
-        time: Date.now() - 129600,
+        magnitude: 6.55,
+        time: Date.now() - (36 * 60 * 60 * 1000),
         lng: 134.019,
         lat: -14.504,
         depth: 17.46,
@@ -21,15 +21,27 @@ class QuakeApiStub {
       },
       {
         id: 'ga2026nhalgc',
-        place: 'outh of Kermadec Islands',
+        place: 'South of Kermadec Islands',
         magnitude: 4.97096996303719,
-        time: Date.now() - 172800,
+        time: Date.now() - (48 * 60 * 60 * 1000),
         lng: -177.96400452,
         lat: -33.44377518,
         depth: 10,
         magnitudeType: 'mb',
         inAustralia: false,
         feltReportUrl: 'https://earthquakes.ga.gov.au/feltreport/ga2026nhalgc'
+      },
+      {
+        id: 'ga2026nhivas',
+        place: '7 km SE of Georgetown, SA',
+        magnitude: 3,
+        time: Date.now() - (48 * 60 * 60 * 1000),
+        lng: 138.45024109,
+        lat: -33.40748215,
+        depth: 1.64966666698456,
+        magnitudeType: 'MLa075',
+        inAustralia: true,
+        feltReportUrl: 'https://earthquakes.ga.gov.au/feltreport/ga2026nhivas'
       }
     ]);
   }
@@ -45,17 +57,33 @@ describe('QuakeStore', () => {
     service = TestBed.inject(QuakeStore);
   });
 
-  it('should filter quakes with magnitude less than 3', () => {
-    service.filters.set({ minMag: 3, sinceHours: 168 });
+  it('should filter out with magnitude less than 5', () => {
+    service.filters.set({ minMag: 5, sinceHours: 168 });
     const visible = service.visibleQuakes();
-    expect(visible.length).toBe(1);
-    expect(visible[0].id).toBe('ga2026nhalgc');
+    expect(visible.map(q => q.id)).toEqual(['ga2026mudirw']);
+  })
+
+  it('should filter out quakes with magnitude less than 4', () => {
+    service.filters.set({ minMag: 4, sinceHours: 168 });
+    const visible = service.visibleQuakes();
+    expect(visible.map(q => q.id)).toEqual(['ga2026mudirw', 'ga2026nhalgc']);
   });
 
-  it('should filter quakes with magnitude less than 1', () => {
-    service.filters.set({ minMag: 1, sinceHours: 168 });
+  it('should filter out quakes with a magnitude less than 3', () => {
+    service.filters.set({ minMag: 3, sinceHours: 168 });
     const visible = service.visibleQuakes();
-    expect(visible.length).toBe(2);
-    expect(visible.map(q => q.id)).toEqual(['ga2026mudirw', 'ga2026nhalgc']);
+    expect(visible.map(q => q.id)).toEqual(['ga2026mudirw', 'ga2026nhalgc', 'ga2026nhivas']);
+  });
+
+  it('should filter quakes less than 50 hours ago', () => {
+    service.filters.set({ minMag: 0, sinceHours: 50 });
+    const visible = service.visibleQuakes();
+    expect(visible.map(q => q.id)).toEqual(['ga2026mudirw', 'ga2026nhalgc', 'ga2026nhivas']);
+  });
+
+  it('should filter quakes less than 42 hours ago', () => {
+    service.filters.set({ minMag: 0, sinceHours: 42 });
+    const visible = service.visibleQuakes();
+    expect(visible.map(q => q.id)).toEqual(['ga2026mudirw']);
   });
 });
