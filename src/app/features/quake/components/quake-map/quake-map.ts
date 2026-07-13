@@ -18,7 +18,7 @@ export class QuakeMap implements AfterViewInit, OnDestroy {
     const el = this.mapContainer().nativeElement;
     const markerLayer = L.layerGroup();
 
-    this.map = L.map(el).setView([-30, 134], 4);
+    this.map = L.map(el).setView([-30, 134], 3);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -26,7 +26,7 @@ export class QuakeMap implements AfterViewInit, OnDestroy {
 
     effect(() => {
       markerLayer.clearLayers();
-      this.store.quakes().forEach((q) => {
+      this.store.visibleQuakes().forEach((q) => {
         L.circleMarker([q.lat, q.lng], {
           color: 'red',
           fillColor: '#f03',

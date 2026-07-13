@@ -1,5 +1,5 @@
 <ul>
-  @for (q of store.quakes(); track q.id) {
+  @for (q of store.visibleQuakes(); track q.id) {
     <li>{{ q.place }} (M{{ q.magnitude | number: '1.1-1' }})</li>
   } @empty {
     <li>No earthquakes to show</li>
