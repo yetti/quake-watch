@@ -39,6 +39,8 @@ export class QuakeMap implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.map.remove();
+    if (this.map) {
+      this.map.remove();
+    }
   }
 }

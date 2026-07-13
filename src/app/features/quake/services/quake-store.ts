@@ -16,6 +16,7 @@ export class QuakeStore {
     minMag: 0,
     sinceHours: 48,
   });
+  now = signal(Date.now());
   visibleQuakes = computed(() => {
     const { minMag, sinceHours } = this.filters();
     const cutoff = Date.now() - sinceHours * 60 * 60 * 1000;
