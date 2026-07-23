@@ -1,30 +1,8 @@
 # QuakeWatch
 
-QuakeWatch is a single-page Angular application that lists and maps recent Australian earthquakes. It pulls live seismic data straight from Geoscience Australia's public feed and lets you narrow the results by magnitude and time window, keeping the list and the map in sync as you filter.
-
-## Features
-
-- **Live earthquake list** — recent events sourced from Geoscience Australia.
-- **Interactive map** — every quake plotted with [Leaflet](https://leafletjs.com/), kept in step with the current filters.
-- **Signal-based filtering** — filter by minimum magnitude (0–8) and time window (up to 168 hours / 7 days); both the list and map update reactively.
-
-## Data source
-
-Earthquake data comes from Geoscience Australia's [Earthquake Notification Service](https://earthquakes.ga.gov.au/help) (see the **Notifications** section). The service publishes recent earthquake data in several formats — RSS, GeoRSS, ATOM CAP-AU, GeoJSON, and KML — and QuakeWatch consumes the **GeoJSON** feed, mapping it into the app's own `Quake` model. The feed is called directly from the browser (CORS is open on the endpoint).
-
-> Note: Geoscience Australia provides these feeds for general informational purposes only. Do not rely on them for emergency response.
-
-## Tech stack
-
-- **Angular 22** — standalone components, signals, and the new control flow syntax.
-- **Signal forms** (`@angular/forms/signals`) for the filter controls.
-- **Leaflet** for the map rendering.
-- **Tailwind CSS v4** for styling.
-- **Vitest** as the unit test runner.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.7.
 
 ## Development server
-
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.5.
 
 To start a local development server, run:
 
