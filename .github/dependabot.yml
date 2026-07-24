@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - npm
+      - dependencies
+    groups:
+      npm-dependencies:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+          - "minor"
+        group-by: "dependency-name"
+    ignore:
+      - dependency-name: "npm"
+        update-types: [ "version-update:semver-major" ]
+    open-pull-requests-limit: 5
