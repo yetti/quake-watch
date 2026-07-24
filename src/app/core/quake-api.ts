@@ -1,25 +1,28 @@
-import { Service, resource, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { computed, Service, Signal } from '@angular/core';
+import { HttpErrorResponse, httpResource } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { map } from 'rxjs';
 import { mapFeatureToQuake } from './feed-mapper';
-import { GaFeature, GaFeatureCollection } from './ga-feed';
+import { GaFeatureCollection } from './ga-feed';
+import { Quake } from '../shared/quake';
 
 @Service()
 export class QuakeApi {
-  private http = inject(HttpClient);
-  #constResource = resource({
-    params: () => ({}),
-    loader: () => this.loadAll(),
+  #resource = httpResource<Quake[]>(() => environment.feedUrl, {
+    parse: (res) =>
+      (res as GaFeatureCollection).features.map((feature) => mapFeatureToQuake(feature)),
   });
 
-  private async loadAll() {
-    return this.http.get<GaFeatureCollection>(environment.feedUrl, {}).pipe(
-      map((res) => {
-        res.features.map((feature: GaFeature) => {
-          return mapFeatureToQuake(feature);
-        })
-      })
-    );
-  }
+  readonly status = this.#resource.status;
+
+  readonly error = this.#resource.error as Signal<HttpErrorResponse | undefined>;
+
+  readonly loading = this.#resource.isLoading;
+
+  readonly quakes = computed(() => {
+    if (this.#resource.hasValue()) {
+      return this.#resource.value();
+    } else {
+      return [];
+    }
+  });
 }

@@ -3,7 +3,7 @@ import { Quake } from '../shared/quake';
 
 export function mapFeatureToQuake(feature: GaFeature): Quake {
   const geo = feature.geometry;
-  const props = feature.properties || {};
+  const props = feature.properties;
 
   return {
     id: props.event_id,
