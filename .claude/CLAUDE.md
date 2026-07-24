@@ -10,6 +10,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 ## Project Structure
 
 - Organize by feature area, not by file type — see [project-structure.md](project-structure.md) for the full layout, naming conventions, and `core/` vs `shared/` rules.
+- Architecture decisions are recorded in `docs/adr/`, named `NNNN-title.md` in decision order — see [ADR-0001: quake detail data sourcing](../docs/adr/0001-quake-detail-data-sourcing.md) before working on the detail view.
 
 ## Angular Best Practices
 
