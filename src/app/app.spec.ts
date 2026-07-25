@@ -1,11 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
+import { installMatchMedia } from '../testing/match-media';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
     }).compileComponents();
+
+    installMatchMedia();
   });
 
   it('should create the app', () => {

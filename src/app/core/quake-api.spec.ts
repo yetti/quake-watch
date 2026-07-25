@@ -1,13 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { QuakeApi } from './quake-api';
-import {
-  HttpTestingController,
-  provideHttpClientTesting,
-} from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { ApplicationRef } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { featuresCollection} from './ga-feed-fixtures';
+import { featuresCollection } from './ga-feed-fixtures';
 
 describe('QuakeApi', () => {
   let service: QuakeApi;
@@ -16,17 +13,14 @@ describe('QuakeApi', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      providers: [
-        provideHttpClient(),
-        provideHttpClientTesting()
-      ]
+      providers: [provideHttpClient(), provideHttpClientTesting()],
     });
     service = TestBed.inject(QuakeApi);
     httpTesting = TestBed.inject(HttpTestingController);
     appRef = TestBed.inject(ApplicationRef);
   });
 
-  afterEach(() => TestBed.inject(HttpTestingController).verify())
+  afterEach(() => TestBed.inject(HttpTestingController).verify());
 
   it('should be created', () => {
     expect(service).toBeTruthy();
@@ -66,7 +60,7 @@ describe('QuakeApi', () => {
     expect(service.quakes().length).toEqual(0);
   });
 
-  it( 'returns an empty array for network errors', async () => {
+  it('returns an empty array for network errors', async () => {
     TestBed.tick();
 
     const request = httpTesting.expectOne(environment.feedUrl, 'Request to load the quake data');

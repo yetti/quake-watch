@@ -8,7 +8,7 @@ import { PanelModule } from 'primeng/panel';
   selector: 'app-root',
   imports: [Globe, MenubarModule, PanelModule],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
   protected readonly title = environment.title;

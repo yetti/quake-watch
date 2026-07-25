@@ -34,4 +34,4 @@ export const alice_springs: GaFeature = {
 
 export const featuresCollection: GaFeatureCollection = {
   features: [macquarie_islands, alice_springs],
-}
+};
