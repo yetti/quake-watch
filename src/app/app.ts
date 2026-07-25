@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { environment } from '../environments/environment';
+import { Globe } from '@primeicons/angular/globe';
+import { MenubarModule } from 'primeng/menubar';
+import { PanelModule } from 'primeng/panel';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Globe, MenubarModule, PanelModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
