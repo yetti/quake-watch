@@ -1,11 +1,11 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
-import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
-import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeuix/themes/aura';
 import { definePreset } from '@primeuix/themes';
+import Aura from '@primeuix/themes/aura';
+import { providePrimeNG } from 'primeng/config';
+import { routes } from './app.routes';
 
 const QuakePreset = definePreset(Aura, {
   semantic: {
@@ -41,6 +41,9 @@ export const appConfig: ApplicationConfig = {
           },
         },
       },
+      // Complying with community licensing requirements.
+      license:
+        'eyJpZCI6IjdiZGVjODRkLTA1MzMtNDk2ZC1iYjA3LWE3MjI1Njc2ZGE5NyIsInByb2R1Y3QiOiJwcmltZXVpIiwidGllciI6ImNvbW11bml0eSIsInR5cGUiOiJkZXYiLCJpYXQiOjE3ODU3MDg4NzksImV4cCI6MTgxNzI0NDg3OX0.LE9WGlNaGAbNAONnCnUMlWq0Aw7ZhK5f3PqDIfhbke-pGQRvmMb63Kwdh2etyuTLvBolbEha-xbVWuT8NngKCQ',
     }),
   ],
 };
