@@ -1,9 +1,9 @@
-import { computed, Service, Signal } from '@angular/core';
 import { HttpErrorResponse, httpResource } from '@angular/common/http';
+import { computed, Service, Signal } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { Quake } from '../shared/quake';
 import { mapFeatureToQuake } from './feed-mapper';
 import { GaFeatureCollection } from './ga-feed';
-import { Quake } from '../shared/quake';
 
 @Service()
 export class QuakeApi {
@@ -21,8 +21,8 @@ export class QuakeApi {
   readonly quakes = computed(() => {
     if (this.#resource.hasValue()) {
       return this.#resource.value();
-    } else {
-      return [];
     }
+
+    return [];
   });
 }

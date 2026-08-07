@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { ApplicationConfig, LOCALE_ID, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { provideHttpClient } from '@angular/common/http';
@@ -45,5 +45,9 @@ export const appConfig: ApplicationConfig = {
       license:
         'eyJpZCI6IjdiZGVjODRkLTA1MzMtNDk2ZC1iYjA3LWE3MjI1Njc2ZGE5NyIsInByb2R1Y3QiOiJwcmltZXVpIiwidGllciI6ImNvbW11bml0eSIsInR5cGUiOiJkZXYiLCJpYXQiOjE3ODU3MDg4NzksImV4cCI6MTgxNzI0NDg3OX0.LE9WGlNaGAbNAONnCnUMlWq0Aw7ZhK5f3PqDIfhbke-pGQRvmMb63Kwdh2etyuTLvBolbEha-xbVWuT8NngKCQ',
     }),
+    {
+      provide: LOCALE_ID,
+      useValue: 'en-US',
+    },
   ],
 };

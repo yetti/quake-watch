@@ -1,6 +1,6 @@
 import { GaFeature, GaFeatureCollection } from './ga-feed';
 
-export const macquarie_islands: GaFeature = {
+export const kermadecIslands: GaFeature = {
   geometry: {
     coordinates: [-177.96400452, -33.44377518],
   },
@@ -16,9 +16,9 @@ export const macquarie_islands: GaFeature = {
   },
 };
 
-export const alice_springs: GaFeature = {
+export const georgetown: GaFeature = {
   geometry: {
-    coordinates: [-172.18708801, -16.79418182],
+    coordinates: [138.80341358, -33.41130137],
   },
   properties: {
     event_id: 'ga2026nhivas',
@@ -32,6 +32,48 @@ export const alice_springs: GaFeature = {
   },
 };
 
+export const marbleBar: GaFeature = {
+  geometry: { coordinates: [119.74, -21.17] },
+  properties: {
+    event_id: 'ga2026paxkuj',
+    description: 'Marble Bar, WA',
+    preferred_magnitude: 4.6,
+    preferred_magnitude_type: 'MLa',
+    origin_time: '2026-07-30T07:02:00Z',
+    depth: 10,
+    located_in_australia: 'Y',
+    felt_report_url: 'https://earthquakes.ga.gov.au/event/ga2026paxkuj',
+  },
+};
+
+export const boulia: GaFeature = {
+  geometry: { coordinates: [139.91, -22.91] },
+  properties: {
+    event_id: 'ga2026qbmwrt',
+    description: 'Boulia, QLD',
+    preferred_magnitude: 2.1,
+    preferred_magnitude_type: 'ML',
+    origin_time: '2026-08-02T08:00:00Z',
+    depth: 3,
+    located_in_australia: 'Y',
+    felt_report_url: 'https://earthquakes.ga.gov.au/event/ga2026qbmwrt',
+  },
+};
+
+export const bandaSea: GaFeature = {
+  geometry: { coordinates: [129.85, -6.75] },
+  properties: {
+    event_id: 'ga2026qcnzvy',
+    description: 'Banda Sea',
+    preferred_magnitude: 6.2,
+    preferred_magnitude_type: 'Mww',
+    origin_time: '2026-08-03T01:43:00Z',
+    depth: 130,
+    located_in_australia: 'N',
+    felt_report_url: 'https://earthquakes.ga.gov.au/event/ga2026qcnzvy',
+  },
+};
+
 export const featuresCollection: GaFeatureCollection = {
-  features: [macquarie_islands, alice_springs],
+  features: [kermadecIslands, georgetown, marbleBar, boulia, bandaSea],
 };

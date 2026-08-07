@@ -1,0 +1,50 @@
+<p-panel header="Quake List ({{ totalQuakes() }})" class="grow">
+  <p-table [value]="quakes()" stripedRows removableSort [scrollable]="true" scrollHeight="flex">
+    <ng-template #header>
+      <tr>
+        <th>ID</th>
+        <th pSortableColumn="place">
+          Place
+          <p-sort-icon field="place" />
+        </th>
+        <th pSortableColumn="magnitude">
+          Magnitude
+          <p-sort-icon field="magnitude" />
+        </th>
+        <th pSortableColumn="time">
+          Time
+          <p-sort-icon field="time" />
+        </th>
+        <th>Location</th>
+        <th pSortableColumn="depth">
+          Depth
+          <p-sort-icon field="depth" />
+        </th>
+        <th>In Australia</th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-quake>
+      <tr [attr.data-testid]="quake.id">
+        <td>{{ quake.id }}</td>
+        <td>{{ quake.place }}</td>
+        <td>M{{ quake.magnitude | number: '1.1-1' }} ({{ quake.magnitudeType }})</td>
+        <td>{{ quake.time | date: 'full' }}</td>
+        <td>{{ quake.lng }}, {{ quake.lat }}</td>
+        <td>{{ quake.depth | number: '1.0-0' }} km</td>
+        <td [attr.data-testid]=`${quake.id}-inAustralia`>
+          <p-tag
+            class="flex items-center gap-2"
+            [style]="{ background: 'transparent', color: 'var(--text-color)' }"
+          >
+            @if (quake.inAustralia) {
+              <svg data-p-icon="check" color="var(--p-green-500)" class="flex-none"></svg>
+            } @else {
+              <svg data-p-icon="times" color="var(--p-red-500)" class="flex-none"></svg>
+            }
+            <span class="text-normal">{{ quake.inAustralia | yesNo }}</span>
+          </p-tag>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-panel>
