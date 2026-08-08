@@ -77,3 +77,26 @@ export const bandaSea: Quake = {
 
 /** Mirrors `featuresCollection` — same quakes, same order. */
 export const allQuakes: Quake[] = [kermadecIslands, georgetown, marbleBar, boulia, bandaSea];
+
+/**
+ * Builds a one-off quake for cases the feed-derived fixtures above can't express —
+ * boundary values in particular, which depend on the `now` a test pins.
+ *
+ * Override only the field under test; every other value is deliberately unremarkable
+ * so a reader can see at a glance what the case is actually about.
+ */
+export function quakeWith(overrides: Partial<Quake> = {}): Quake {
+  return {
+    id: 'ga-boundary',
+    place: 'Boundary Case',
+    magnitude: 4,
+    time: Date.parse('2026-08-03T00:00:00Z'),
+    lng: 133.88,
+    lat: -23.7,
+    depth: 10,
+    magnitudeType: 'ML',
+    inAustralia: true,
+    feltReportUrl: 'https://earthquakes.ga.gov.au/event/ga-boundary',
+    ...overrides,
+  };
+}

@@ -31,7 +31,7 @@
         <td>{{ quake.time | date: 'full' }}</td>
         <td>{{ quake.lng }}, {{ quake.lat }}</td>
         <td>{{ quake.depth | number: '1.0-0' }} km</td>
-        <td [attr.data-testid]=`${quake.id}-inAustralia`>
+        <td [attr.data-testid]="`${quake.id}-inAustralia`">
           <p-tag
             class="flex items-center gap-2"
             [style]="{ background: 'transparent', color: 'var(--text-color)' }"

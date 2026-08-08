@@ -7,10 +7,28 @@
       </div>
     </ng-template>
   </p-menubar>
-  <div class="flex justify-between gap-2">
-    <p-panel header="Magnitude size" class="grow">magnitude picker</p-panel>
-    <p-panel header="Hours in the past" class="grow">hours picker</p-panel>
+  <div class="flex justify-evenly gap-2">
+    <p-panel header="Magnitude size" class="flex-1">
+      <p-select
+        ariaLabel="Magnitude size"
+        [options]="magnitudeOptions"
+        optionLabel="label"
+        placeholder="All magnitudes"
+        [showClear]="true"
+        (onChange)="magnitudeLimit.set($event.value)"
+      />
+    </p-panel>
+    <p-panel header="Hours in the past" class="flex-1">
+      <p-select
+        ariaLabel="Hours in the past"
+        [options]="hourOptions"
+        optionLabel="label"
+        placeholder="All time"
+        [showClear]="true"
+        (onChange)="hourLimit.set($event.value)"
+      />
+    </p-panel>
   </div>
   <div class="flex justify-center my-2">map</div>
-  <div class="flex justify-center my-2" app-quake-list></div>
+  <div class="flex justify-center my-2" app-quake-list [quakes]="quakes()"></div>
 </div>

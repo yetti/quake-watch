@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LOCALE_ID, signal } from '@angular/core';
-import { QuakeApi } from '../../../core/quake-api';
 import { Quake } from '../../../shared/quake';
 import { QuakeList } from './quake-list';
 import { allQuakes } from './quake-fixtures';
@@ -18,12 +17,6 @@ describe('QuakeList', () => {
       imports: [QuakeList],
       providers: [
         {
-          provide: QuakeApi,
-          useValue: {
-            quakes: quakes,
-          },
-        },
-        {
           provide: LOCALE_ID,
           useValue: 'en-US',
         },
@@ -31,6 +24,7 @@ describe('QuakeList', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(QuakeList);
+    fixture.componentRef.setInput('quakes', allQuakes);
     component = fixture.componentInstance;
 
     await fixture.whenStable();
