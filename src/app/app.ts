@@ -13,10 +13,11 @@ import {
 import { QuakeApi } from './core/quake-api';
 import { atLeastMagnitudeOf, withinHoursOf } from './features/quakes/quake-filters';
 import { Select } from 'primeng/select';
+import { QuakeMap } from './features/quakes/quake-map/quake-map';
 
 @Component({
   selector: 'app-root',
-  imports: [Globe, MenubarModule, PanelModule, QuakeList, Select],
+  imports: [Globe, MenubarModule, PanelModule, QuakeList, Select, QuakeMap],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

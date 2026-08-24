@@ -1,4 +1,4 @@
-import { radiusFor, recencyFor, buildShape } from './quake-markers';
+import { radiusFor, recencyFor, buildShape, markerHtml } from './quake-markers';
 import { MS_PER_HOUR } from './quake-filters';
 import { quakeWith } from './quake-list/quake-fixtures';
 
@@ -81,6 +81,26 @@ describe('Quake Markers', () => {
     it('pads out the size by 3 pixels all around to account for the stroke', () => {
       const shape = buildShape('Circle', 9.5);
       expect(shape.size).toEqual(25);
+    });
+  });
+
+  describe('markerHtml', () => {
+    it('fills circles with the recency colour and fixed stroke', () => {
+      const html = markerHtml(buildShape('Circle', 6), '#F20203');
+
+      expect(html).toContain('fill="#F20203"');
+      expect(html).toContain('stroke="#1C1C1C"');
+      expect(html).toContain('stroke-width="1"');
+      expect(html).toContain('<circle ');
+    });
+
+    it('fills polygons with the recency colour and rounded stroke joins', () => {
+      const html = markerHtml(buildShape('Diamond', 6), '#F29F03');
+
+      expect(html).toContain('fill="#F29F03"');
+      expect(html).toContain('stroke="#1C1C1C"');
+      expect(html).toContain('stroke-linejoin="round"');
+      expect(html).toContain('<polygon ');
     });
   });
 });

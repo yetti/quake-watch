@@ -169,3 +169,24 @@ export function buildShape(shape: MarkerShape, radius: number): MarkerGeometry {
       };
   }
 }
+
+export function markerHtml(shape: ReturnType<typeof buildShape>, fill: string): string {
+  const stroke = '#1C1C1C';
+  const attrs = `fill="${fill}" stroke="${stroke}" stroke-width="1" stroke-linejoin="round"`;
+
+  if (shape.shape == 'Circle') {
+    return `
+      <svg width="${shape.size}" height="${shape.size}" viewBox="0 0 ${shape.size} ${shape.size}" aria-hidden="true">
+        <circle cx="${shape.cx}" cy="${shape.cy}" r="${shape.r}" ${attrs} />
+      </svg>
+    `;
+  }
+
+  const points = shape.points.map(([x, y]) => `${x},${y}`).join(' ');
+
+  return `
+    <svg width="${shape.size}" height="${shape.size}" viewBox="0 0 ${shape.size} ${shape.size}" aria-hidden="true">
+      <polygon points="${points}" ${attrs} />
+    </svg>
+  `;
+}
