@@ -1,15 +1,14 @@
-import { atLeastMagnitudeOf, withinHoursOf } from './quake-filters';
+import { atLeastMagnitudeOf, withinHoursOf, MS_PER_HOUR } from './quake-filters';
 import { allQuakes, quakeWith } from './quake-list/quake-fixtures';
 
 const NOW = Date.parse('2026-08-03T02:00:00Z');
-const HOUR = 3_600_000;
 
 describe('withinHoursOf', () => {
   it('excludes quakes older than the limit', () => {
     const lastFourHours = { label: 'Last 4 hours', max: 4 };
 
-    const olderQuake = quakeWith({ id: 'older', time: NOW - 4 * HOUR - 1 });
-    const borderlineQuake = quakeWith({ id: 'borderline', time: NOW - 4 * HOUR });
+    const olderQuake = quakeWith({ id: 'older', time: NOW - 4 * MS_PER_HOUR - 1 });
+    const borderlineQuake = quakeWith({ id: 'borderline', time: NOW - 4 * MS_PER_HOUR });
     const quakes = [borderlineQuake, olderQuake].filter((q) =>
       withinHoursOf(q, lastFourHours, NOW),
     );

@@ -30,5 +30,9 @@
     </p-panel>
   </div>
   <div class="flex justify-center my-2">map</div>
+  <p class="text-sm text-center my-2">
+    Marker colour shows how recently a quake happened.
+    <a href="#quake-list" class="underline">Skip to the Quake List</a> for exact times.
+  </p>
   <div class="flex justify-center my-2" app-quake-list [quakes]="quakes()"></div>
 </div>

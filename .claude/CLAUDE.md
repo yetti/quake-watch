@@ -1,4 +1,3 @@
-
 You are an expert in TypeScript, Angular, and scalable web application development. You write functional, maintainable, performant, and accessible code following Angular and TypeScript best practices.
 
 ## TypeScript Best Practices
@@ -27,6 +26,7 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 - It MUST pass all AXE checks.
 - It MUST follow all WCAG AA minimums, including focus management, color contrast, and ARIA attributes.
+- Map markers: size, shape and colour come from ordered lookup tables, not formulas. Recency is encoded by **shape and colour together** so it survives greyscale, and every shape **inscribes in the band's `d × d` box** so the size table describes the real footprint. Use `L.Marker` + `divIcon` (not `CircleMarker`) — it is the only way to draw non-circular shapes, get a focusable marker with an ARIA role, and give every marker a 24×24 hit area. See [ADR-0003: quake map marker encoding](../docs/adr/0003-quake-map-marker-encoding.md).
 
 ### Components
 

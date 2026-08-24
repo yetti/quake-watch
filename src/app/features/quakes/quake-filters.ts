@@ -1,7 +1,7 @@
 import { Quake } from '../../shared/quake';
 import { LowerFilterLimit, UpperFilterLimit } from '../../shared/filter-limits';
 
-const MS_PER_HOUR = 3_600_000;
+export const MS_PER_HOUR = 3_600_000;
 
 export function withinHoursOf(quake: Quake, limit: UpperFilterLimit | null, now: number) {
   if (limit) {

@@ -1,5 +1,11 @@
-<p-panel header="Quake List ({{ totalQuakes() }})" class="grow">
+<p-panel id="quake-list" tabindex="-1" header="Quake List ({{ totalQuakes() }})" class="grow">
   <p-table [value]="quakes()" stripedRows removableSort [scrollable]="true" scrollHeight="flex">
+    <ng-template #caption>
+      <p class="text-sm font-normal">
+        Map marker colour shows how recently a quake happened: red in the last 4 hours, orange in
+        the last 24 hours, yellow older than that. Exact times are in the Time column below.
+      </p>
+    </ng-template>
     <ng-template #header>
       <tr>
         <th>ID</th>
